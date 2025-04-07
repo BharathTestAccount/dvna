@@ -4,7 +4,7 @@ name: Scan with OWASP Dependency Check
 on:
   # Trigger the workflow on the following events:
   push:
-    branches: ["main"]
+    branches: ["master"]
 
 # Define the job(s) to be executed within the workflow
 jobs:
@@ -38,8 +38,8 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout main
+          git checkout master
           mv dependency-check-report.csv owasp-dependency-check.csv
           git add owasp-dependency-check.csv
           git commit -m "Add OWASP Dependency Check CSV report"
-          git push origin main
+          git push origin master
